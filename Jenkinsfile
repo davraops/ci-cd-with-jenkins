@@ -2,17 +2,17 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_SERVER = 'http://your-sonarqube-server'
-        SONARQUBE_CREDENTIALS = 'sonarqube-credentials-id'
-        DOCKER_IMAGE = 'your-docker-image'
-        REGISTRY_CREDENTIALS = 'docker-registry-credentials-id'
-        REGISTRY_URL = 'your-docker-registry-url'
+        SONARQUBE_SERVER = 'http://your-sonarqube-server'  // The URL to your SonarQube server
+        SONARQUBE_CREDENTIALS = 'sonarqube-credentials-id'  // The Jenkins credentials ID for SonarQube login
+        DOCKER_IMAGE = 'your-docker-image'  // Name of the Docker image (e.g., myregistry.com/myapp)
+        REGISTRY_CREDENTIALS = 'docker-registry-credentials-id'  // The Jenkins credentials ID for your Docker registry
+        REGISTRY_URL = 'your-docker-registry-url'  // The URL to your Docker registry (e.g., docker.io or myregistry.com)
     }
 
     stages {
         stage('Checkout') {
             steps {
-                git 'https://your-repository-url.git'
+                git 'https://github.com/davraops/ci-cd-with-jenkins.git'
             }
         }
 
